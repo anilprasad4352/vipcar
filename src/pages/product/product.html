@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{ name }}</ion-title>
+	
+  </ion-navbar>
+ <ion-icon name="home" class="homebar" (click)="homeGo()"  ></ion-icon>
+</ion-header>
+
+
+<ion-content>
+<div class="product">
+<div class="unit">
+    <img [(src)]="img" alt="">
+	<div>
+	<p>{{ name }} </p>
+	<p>
+	<ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+{{ rating_count }}  {{ langdata.Ratings }} / {{ review_count }} {{ langdata.Reviews }}
+	</p>
+	<p>{{ address }}</p>
+	</div>
+	<button (click)="buyNow(pid)"> {{ langdata.BuyNow }}</button>
+	<h4>{{ langdata.ProductHighlights }}</h4>
+	<p>
+	{{ highlights }}
+</p>
+
+</div>
+
+</div>
+</ion-content>

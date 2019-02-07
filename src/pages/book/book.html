@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{ name }}</ion-title>
+	
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content >
+<div class="booknow">
+	<p>{{ name }} </p>
+	<p>
+	<ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="nofill"></ion-icon>
+{{ rating_count }} {{ langdata.Ratings }} / {{ review_count }} {{ langdata.Reviews }}
+	</p>
+	<p>{{ address }}</p>
+	
+	<div style="text-align:center;margin-top:45px;" class="profile">
+   <ion-item>
+    <input type="text" placeholder="Your Name" required   />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="Your Email" required   />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="Contact Number" required   />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="Title" required   />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="Pickup Address" required   />
+  </ion-item>
+  <ion-item>
+    <textarea type="text" placeholder="Your Message" required    ></textarea>
+  </ion-item>
+
+   <ion-item>
+<input type="submit" [(value)]="langdata.BookNow"  name="submit" (click)="gotoCheckout()" style="color:#000;font-weight:700;" name="submit"/>
+  </ion-item>
+  </div>
+	</div>
+</ion-content>

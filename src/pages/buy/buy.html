@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{ langdata.BookNow }}</ion-title>
+	
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+	<div class="booknow">
+	<p>{{ name }} </p>
+	<p>
+	<ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="nofill"></ion-icon>
+{{ rating_count }} {{ langdata.Ratings }} / {{ review_count }} {{ langdata.Reviews }}
+	</p>
+	<p>{{ address }}</p>
+	
+	<div style="text-align:center;margin-top:45px;" class="profile">
+	
+   <ion-item>
+     <ion-label class="inherit" *ngIf=" sdate == 1" > {{ langdata.SelectDate }}</ion-label>
+
+   <ion-datetime displayFormat="MM/DD/YYYY" min="2018" max="2020" (click)="labelDate()" [(ngModel)]="buy.date" ></ion-datetime>
+  </ion-item>
+   <ion-item>
+     <ion-label class="inherit" *ngIf=" stime == 1">{{ langdata.SelectTime }}</ion-label>
+
+   <ion-datetime displayFormat="H:mm" (click)="labelTime()" [(ngModel)]="buy.date" ></ion-datetime>
+  </ion-item>
+  <ion-item>
+  <ion-select  [(ngModel)]="buy.service" (ionChange)="onSelectChangeServ($event)">
+    <ion-option value="" selected>{{ langdata.SelectService }}</ion-option>
+    <ion-option *ngFor ="let data of services" [(value)]="data.id">{{ data.service}}</ion-option>
+   
+  </ion-select>
+  
+  </ion-item>
+  <ion-item>
+    <ion-select   [(ngModel)]="buy.delivery" (ionChange)="onSelectChange($event)">
+    <ion-option value="" selected>{{ langdata.PickuporDropcar }}</ion-option>
+    <ion-option value="0">{{ langdata.Pickup }}</ion-option>
+    <ion-option value="1">{{ langdata.Drop }}</ion-option>
+  </ion-select>
+  </ion-item>
+  <ion-item  *ngIf="pickup == 1" >
+    <input type="text" placeholder="Pickup Address" required [(ngModel)]="buy.pick_address"  />
+  </ion-item>
+  <ion-item  *ngIf="pickup == 1" >
+    <input type="text" placeholder="Pickup Contact Person" required [(ngModel)]="buy.contact_person"   />
+  </ion-item>
+<ion-item  *ngIf="pickup == 1" >
+    <input type="text" placeholder="Contact Number" required [(ngModel)]="buy.contact"   />
+  </ion-item>
+   <ion-item style="text-align:center;padding-top: 10px;
+    padding-bottom: 12px;">
+   <h5>{{ langdata.EstimatedPrice }}</h5>
+   <h2 style="    color: #fff;
+    font-weight: 700;"><span *ngIf="buy.price != ''">$</span>{{ buy.price }}</h2>
+   </ion-item>
+   <ion-item>
+<input type="submit" [(value)]="langdata.BookNow"  name="submit" (click)="bookNow()" name="submit"/>
+  </ion-item>
+  </div>
+	</div>
+	
+	
+</ion-content>

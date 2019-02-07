@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{ langdata.Support }}</ion-title>
+	
+  </ion-navbar>
+ <ion-icon name="home" class="homebar"  ></ion-icon>
+</ion-header>
+
+
+<ion-content>
+<div class="booknow">
+	
+	
+	<div style="text-align:center;" class="profile">
+<ion-item style="text-align:center;color:ffffff9e ;">
+   {{ langdata.CallUsNow }}
+  </ion-item>
+  <ion-item style="text-align:center;font-weight:700;color:#fff;    margin-top: -10px;">
+    {{ sphone }}
+  </ion-item>
+  
+  <ion-item style="text-align:center;color:ffffff9e ;">
+   {{ langdata.WriteUs }}
+  </ion-item>
+  <ion-item style="text-align:center;font-weight:700;color:#fff;    margin-top: -10px;">
+    {{ semail }}
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="Name" required [(ngModel)]="support.name"  />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="Email" required [(ngModel)]="support.email"   />
+  </ion-item>
+<ion-item>
+    <input type="text" placeholder="Subject" required  [(ngModel)]="support.subject"  />
+  </ion-item>
+  <ion-item>
+    <textarea type="text" placeholder="Message" required [(ngModel)]="support.msg"   ></textarea>
+  </ion-item>
+   
+   <ion-item>
+<input type="submit" [(value)]="langdata.SubmitNow"   name="submit" (click)="gotoCheckout()" name="submit" style="    color: #000;
+    font-weight: 700;"/>
+  </ion-item>
+  </div>
+	</div>
+</ion-content>

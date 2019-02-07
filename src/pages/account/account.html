@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{ langdata.MyProfile }}</ion-title>
+	
+  </ion-navbar>
+ <ion-icon name="home" class="homebar" (click)="homeGo()"  ></ion-icon>
+</ion-header>
+
+
+
+<ion-content padding class="u-profilex">
+<div class="profile-u">
+<div class="profile-img">
+<div class="profile-img-src">
+ <img [src]="profile"  />
+</div>
+<div class="profile-img-upload" (click)="getImage()">
+<ion-icon name="cloud-upload" class="createbar"  ></ion-icon>
+
+</div>
+<button  *ngIf=" upload == 1"  (click)="uploadImage()" style="margin-left:20px"> Upload</button>
+</div>
+<div class="profile-name">
+ <p >{{ name }}</p>
+ <p>{{ user_location }}</p>
+</div>
+</div>
+<div class="tabs">
+<button   [(class)]="tab1class" (click)="tab1active()"> {{ langdata.MyInfo }}</button>
+<button  [(class)]="tab2class" (click)="tab2active()"> {{ langdata.MyOrders }}</button>
+<button  [(class)]="tab3class" (click)="tab3active()"> {{ langdata.ChangePassword }}</button>
+</div>
+
+<div class="password_info" *ngIf=" tab3 == 1">
+<div style="text-align:center;" class="profile">
+<ion-item>
+ <input type="password" placeholder="Old Password" required [(ngModel)]="changepwd.old"  />
+  </ion-item>
+  <ion-item>
+ <input type="password" placeholder="New Password" required [(ngModel)]="changepwd.newp"  />
+  </ion-item>
+  <ion-item>
+ <input type="password" placeholder="Confirm Password" required [(ngModel)]="changepwd.cnewp"  />
+  </ion-item>
+  <ion-item>
+<input type="submit" [(value)]="langdata.SubmitNow"  name="submit" (click)="changepassword()" name="submit"/>
+  </ion-item>
+</div>
+</div>
+<div class="order_info" *ngIf=" tab2 == 1">
+<div class="order"  *ngFor ="let data of orderlist" >
+<div class="order-img">
+ <img [src]="data.product_image"  />
+</div>
+<div class="order-text">
+<p>{{ data.product_name }}</p>
+<p>{{ data.order_notes }}</p>
+<p (click)="orderMove(data.id)">{{ langdata.ViewAll }}</p>
+</div>
+<div class="hr_line"></div>
+</div>
+
+
+</div>
+<div class="content_info" *ngIf=" tab1 == 1">
+<div style="text-align:center;" class="profile">
+   <ion-item>
+ <input type="text" placeholder="Name" required [(ngModel)]="loginv.name"  />
+  </ion-item>
+   <ion-item>
+    <input type="text" placeholder="Email" required   [(ngModel)]="loginv.email" />
+  </ion-item>
+  <ion-item style="text-align:center;">
+    <input type="date" placeholder="Date of Birth" required [(ngModel)]="loginv.dob"  />
+  </ion-item>
+  <ion-item>
+    <input type="phone" placeholder="Contact Number" required [(ngModel)]="loginv.phone"   />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="Address Line 1" required  [(ngModel)]="loginv.address"  />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="City" required [(ngModel)]="loginv.city"   />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="State" required [(ngModel)]="loginv.state"   />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="Country" required [(ngModel)]="loginv.country"   />
+  </ion-item>
+   <ion-item>
+<input type="submit" [(value)]="langdata.SubmitNow"  name="submit" (click)="profileUpdate()" name="submit"/>
+  </ion-item>
+  </div>
+</div>
+
+</ion-content>

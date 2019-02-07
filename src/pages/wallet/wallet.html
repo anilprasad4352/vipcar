@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{ langdata.Wallet }}</ion-title>
+	
+  </ion-navbar>
+ <ion-icon name="home" class="homebar"  ></ion-icon>
+</ion-header>
+
+
+<ion-content>
+<div class="booknow">
+	
+	
+	<div style="text-align:center;" class="profile">
+<ion-item style="text-align:center;color:ffffff9e ;">
+   $ {{ useramount }}
+  </ion-item>
+  <ion-item style="text-align:center;font-weight:700;color:#fff;    margin-top: -10px;">
+   Share and Earn
+  </ion-item>
+  
+  <ion-item style="text-align:center;font-weight:700;color:#fff;    margin-top: -10px;">
+   Total Referrals: {{totalf}}
+  </ion-item>
+  <ion-item style="text-align:center;font-weight:700;color:#fff;    margin-top: -10px;">
+   Code: {{ref}}
+  </ion-item>
+    
+   <ion-item style="text-align:center;">
+<input type="button" value="Share"   name="share" (click)="sharenow()"  style="   color: #fff;
+    font-weight: 700;
+    background: #3F51B5;
+    border: 2px solid #3F51B5;
+    font-weight: 700;"/>
+  </ion-item>
+ 
+  </div>
+	</div>
+</ion-content>

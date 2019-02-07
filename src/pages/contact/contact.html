@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{ name }}</ion-title>
+	
+  </ion-navbar>
+ <ion-icon name="home" class="homebar" (click)="homeGo()"  ></ion-icon>
+</ion-header>
+
+
+
+<ion-content >
+<div class="booknow">
+	<p>{{ name }} </p>
+	<p>
+	<ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="nofill"></ion-icon>
+{{ rating_count }} {{ langdata.Ratings }} / {{ review_count }} {{ langdata.Reviews }}
+	</p>
+	<p>{{ address }}</p>
+	
+	<div style="text-align:center;margin-top:45px;" class="profile">
+   <ion-item>
+    <input type="text" placeholder="Your Name" required [(ngModel)]="contact.name"  />
+  </ion-item>
+  <ion-item>
+    <input type="email" placeholder="Your Email" required  [(ngModel)]="contact.email"  />
+  </ion-item>
+  <ion-item>
+    <input type="phone" placeholder="Contact Number" required [(ngModel)]="contact.phone"   />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="Title" required  [(ngModel)]="contact.title"  />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="Pickup Address" required [(ngModel)]="contact.address"   />
+  </ion-item>
+  <ion-item>
+    <textarea type="text" placeholder="Your Message" required [(ngModel)]="contact.message"    ></textarea>
+  </ion-item>
+
+   <ion-item>
+<input type="submit" [(value)]="langdata.ContactNow"  name="submit" (click)="contactNow()" style="color:#000;font-weight:700;" name="submit"/>
+  </ion-item>
+  </div>
+	</div>
+</ion-content>

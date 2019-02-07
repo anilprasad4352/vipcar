@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{ name }} {{ langdata.Checkout }}</ion-title>
+	
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+
+	<div class="checkout">
+	<div class="pimg">
+	<img [(src)]="img" alt="">
+	</div>
+	<div>
+	
+	<p style="color: #ffffff85;">{{ name }} </p>
+	<p *ngIf=" uprice == 0" style="line-height: 0px;
+    font-weight: 700;">${{ price }}
+	</p>
+	<p *ngIf=" uprice != 0" style="line-height: 0px;
+    font-weight: 700;    text-decoration: line-through;">${{ price }}
+	</p>
+	<p *ngIf=" uprice != 0" style="line-height: 0px;
+    font-weight: 700; ">${{ uprice }}
+	</p>
+</div>
+	
+	<div style="text-align:center;margin-top:45px;" class="profile">
+	<ion-item style="text-align:center;">
+  <input type="text" placeholder="Promo Code"   [(ngModel)]="shipping.coupon" style="width:150px;float:left;"  />
+  <input type="submit" [(value)]="langdata.Apply"  name="submit" (click)="applyPromo()" name="submit" style="    width: 150px;
+    color: #000;
+    font-weight: 700;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin-top: 5px !important;"/>
+   </ion-item>
+	</div>
+	<div style="text-align:center;margin-top:45px;" class="profile">
+   <ion-item style="text-align:center;">
+   {{ langdata.ShippingDetails }}
+   </ion-item>
+   <ion-item>
+    <input type="text" placeholder="Your Name" required  [(ngModel)]="shipping.name"  />
+  </ion-item>
+  <ion-item>
+    <input type="email" placeholder="Your Email" required  [(ngModel)]="shipping.email"  />
+  </ion-item>
+  <ion-item>
+    <input type="phone" placeholder="Phone Number" required  [(ngModel)]="shipping.phone"  />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder=" Address" required [(ngModel)]="shipping.address"   />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="State" required [(ngModel)]="shipping.state"    />
+  </ion-item>
+  <ion-item>
+    <input type="text" placeholder="City" required  [(ngModel)]="shipping.city"   />
+  </ion-item>
+ <ion-item>
+    <input type="text" placeholder="Landmark" required  [(ngModel)]="shipping.landmark"   />
+  </ion-item>
+   <ion-item>
+    <input type="text" placeholder="Area Pincode" required  [(ngModel)]="shipping.pin"   />
+  </ion-item>
+   <ion-item>
+    <textarea type="text" placeholder="Additional Notes" [(ngModel)]="shipping.notes" ></textarea>
+  </ion-item>
+   <ion-item style="text-align:center;">
+   {{ langdata.PaymentOptions }}
+   </ion-item>
+    <ion-item style="text-align:center;" *ngFor="let item of items" (click)="paymentType(item)" >
+   <button class="paymentbtn" [ngClass]="{'active': item.active}" >  <ion-icon name="cash" style="    padding-right: 10px;
+    font-size: 20px;"></ion-icon>
+ {{ item.name }}</button>
+   </ion-item>
+    
+   <ion-item style="margin-bottom:20px;">
+<input type="submit" [(value)]="langdata.PayNowSecurely"  name="submit" (click)="gotoCheckout()" name="submit" style="    color: #000;
+    font-weight: 700;"/>
+  </ion-item>
+  </div>
+	</div>
+</ion-content>

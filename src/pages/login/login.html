@@ -1,0 +1,102 @@
+
+<ion-content padding class="login" *ngIf=" wlog == 1">
+ <div style="text-align:center;">
+ <img src="assets/imgs/logo.png" style="height: 200px;" />
+ 
+ <h3 style="color:#fff;" class="g_head_title">Login</h3>
+ </div>
+ 
+  <div style="text-align:center;" class="signup1" *ngIf=" otpsend == 0">
+   <ion-item>
+ <input type="text" placeholder="Whatsapp Number i.e +1805963561" [(ngModel)]="wnumber" required />
+  </ion-item>
+  
+   <ion-item>
+<input type="submit" value="Send OTP" (click)="wsend()" name="submit"/>
+  </ion-item>
+  </div>
+  
+   <div style="text-align:center;" class="signup1" >
+   <ion-item style="text-align:center;">
+<a ion-button href="https://api.whatsapp.com/send?phone=+14155238886&text=join isabelline-dog"   style="    color: #000;
+    background-color: #32db64;    margin-top: -6px;">Authenticate on first time login</a><br>
+	<p>send a WhatsApp message to <br>+14155238886 with code <br> <b>join isabelline-dog</b></p>
+  </ion-item>
+  </div>
+  
+  <div style="text-align:center;" class="signup2" *ngIf=" otpsend == 1">
+   <ion-item>
+ <input type="text" placeholder="Enter OTP" [(ngModel)]="otpenter" required />
+  </ion-item>
+  
+   <ion-item>
+<input type="submit" value="Login Now" (click)="checkOtp()" name="submit"/>
+  </ion-item>
+  </div>
+  
+   
+  <div style="text-align:center;">
+  <p style="color: #fff;">OR</p>
+  </div>
+  
+   <div style="text-align:center;">
+
+	<ion-item style="text-align:center;">
+	 <br>
+ <a ion-button  (click)="backLogin()" style="    color: #000;
+    background-color: #fcb000;    margin-top: -6px;">Back to Login</a>
+
+
+ 
+    </ion-item>
+  </div>
+  
+  
+</ion-content>
+
+<ion-content padding class="login" *ngIf=" wlog == 0">
+ <div style="text-align:center;">
+ <img src="assets/imgs/logo.png" style="height: 200px;" />
+ 
+ <h3 style="color:#fff;" class="g_head_title">Login</h3>
+ </div>
+ 
+  <div style="text-align:center;" class="signup">
+   <ion-item>
+ <input type="email" placeholder="Email Address" required id="email" [(ngModel)]="loginv.email" />
+  </ion-item>
+   <ion-item>
+    <input type="password" placeholder="Password" required id="pwd" [(ngModel)]="loginv.password" />
+  </ion-item>
+   <ion-item>
+<input type="submit" value="Login Now" (click)="login()" name="submit" name="submit"/>
+  </ion-item>
+  </div>
+  
+  <div style="text-align:center;">
+  <p style="color: #fff;">OR</p>
+  </div>
+  
+   <div style="text-align:center;">
+
+ <ion-item>
+  <button class="btn btn-facebook" (click)="fblogin()">Login with Facebook</button>  
+   </ion-item>
+   <ion-item>
+  <button class="btn btn-google" (click)="glogin()">Login with Google</button> 
+   </ion-item>
+   <ion-item>
+  <button class="btn btn-whatsapp" (click)="wlogin()">Login with Whatsapp</button>
+ 
+    </ion-item>
+	
+	 <ion-item style="text-align:center;">
+	 <br>
+ <span style="color: #fff;">Not registered?  </span><a ion-button  (click)="signupGo()" style="    color: #000;
+    background-color: #fcb000;    margin-top: -6px;">Signup Now</a>
+
+
+ 
+    </ion-item>
+  </div>
+</ion-content>

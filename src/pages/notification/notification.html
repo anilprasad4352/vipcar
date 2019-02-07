@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{ langdata.Notification }}</ion-title>
+	
+  </ion-navbar>
+ <ion-icon name="home" class="homebar"  ></ion-icon>
+</ion-header>
+
+
+<ion-content padding>
+<ion-card *ngFor ="let data of list1">
+ 
+  <ion-card-content style="color:#fff;">
+    {{ data.test }}
+  </ion-card-content>
+  
+</ion-card>
+
+
+
+
+
+</ion-content>

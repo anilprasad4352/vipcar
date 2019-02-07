@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{ langdata.LanguageSettings }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-list radio-group [(ngModel)]="languaged">
+  <ion-item *ngFor ="let data of language">
+    <ion-label>{{ data.name}}</ion-label>
+    <ion-radio (ionSelect)="catSelect($event)" [(checked)]="data.checked"  [(value)]="data.id" ></ion-radio>
+  </ion-item>
+</ion-list>
+
+
+
+
+
+</ion-content>

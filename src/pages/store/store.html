@@ -1,0 +1,32 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >{{ langdata.OnlineStore }}</ion-title>
+	
+  </ion-navbar>
+ <ion-icon name="home" class="homebar" (click)="homeGo()"  ></ion-icon>
+</ion-header>
+
+
+<ion-content>
+<div class="listing">
+<ion-item  *ngFor ="let data of list1" (click)="productMove(data.id)">
+    <img [(src)]="data.image" alt="">
+	<div>
+	<p>{{ data.name }} </p>
+	<p>
+	<ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="fill"></ion-icon>
+  <ion-icon name="star" class="nofill"></ion-icon>
+
+	</p>
+	</div>
+</ion-item>
+
+</div>
+</ion-content>
