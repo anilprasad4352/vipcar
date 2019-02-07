@@ -48,6 +48,7 @@
     "cordova-plugin-file-transfer": "^1.7.1",
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-googleplus": "^5.3.2",
+    "cordova-plugin-ionic": "^5.3.0",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^2.1.4",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -98,6 +99,11 @@
       "cordova.plugins.diagnostic": {},
       "cordova-plugin-x-socialsharing": {
         "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
+      },
+      "cordova-plugin-ionic": {
+        "APP_ID": "ec834ac9",
+        "CHANNEL_NAME": "Master",
+        "UPDATE_METHOD": "background"
       }
     },
     "platforms": [
