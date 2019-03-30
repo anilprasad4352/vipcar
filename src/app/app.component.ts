@@ -41,7 +41,7 @@ langdata:any;
   
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public menuCtrl: MenuController,public alertCtrl: AlertController,public loadingCtrl: LoadingController,private http: HTTP) {
 
-	 let headers = {
+	 /*let headers = {
             'Content-Type': 'application/json'
         };
     if(localStorage.getItem("user_id") == null || localStorage.getItem("user_id") == ""){	
@@ -105,9 +105,19 @@ const alert = this.alertCtrl.create({
   }else{
 	  this.rootPage = HomePage;
  
-  }
+  }*/
  
- 
+ this.pages = [
+      {  title: 'Home', component: HomePage, icon:'home' },
+      { title: 'Explore', component: StorePage, icon:'locate' },
+      { title: 'Notification', component: NotificationPage, icon:'notifications' },
+      { title: 'Near By', component: CarwashlistPage, icon:'navigate' },
+      { title: 'Account', component: AccountPage, icon:'contact' },
+      { title: 'Language', component: LanguagePage, icon:'at' },
+      { title: 'Support', component: SupportPage, icon:'help' },
+      { title: 'Share and Earn', component: WalletPage, icon:'share' }
+    ];
+    
     this.initializeApp();
 	
 	  if(localStorage.getItem("user_id") == null || localStorage.getItem("user_id") == ""){		
