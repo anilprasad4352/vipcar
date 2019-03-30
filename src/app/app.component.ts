@@ -45,7 +45,7 @@ langdata:any;
             'Content-Type': 'application/json'
         };
     if(localStorage.getItem("user_id") == null || localStorage.getItem("user_id") == ""){	
-		 this.ldata.uid=1;
+		 this.ldata.uid='1';
    this.ldata.lang='';
     }else{
       this.ldata.uid=localStorage.getItem("user_id");
