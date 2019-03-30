@@ -81,7 +81,7 @@ localStorage.setItem("langdata",JSON.stringify(this.langdata))
   .catch(error => {
 const alert = this.alertCtrl.create({
       title: 'Language Status',
-      subTitle: 'Internet Connectivity issues',
+      subTitle: error.error,
       buttons: ['OK']
     });
     alert.present();
