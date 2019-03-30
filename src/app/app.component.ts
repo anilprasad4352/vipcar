@@ -40,14 +40,17 @@ export class MyApp {
 langdata:any;
   
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public menuCtrl: MenuController,public alertCtrl: AlertController,public loadingCtrl: LoadingController,private http: HTTP) {
-	/*this.name="Aaqib khan pathan";
-	this.user_location="Khanjrana,Indore";
-	this.profile="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png";*/
+
 	 let headers = {
             'Content-Type': 'application/json'
         };
-		 this.ldata.uid=localStorage.getItem("user_id");
+    if(localStorage.getItem("user_id") == null || localStorage.getItem("user_id") == ""){	
+		 this.ldata.uid=1;
    this.ldata.lang='';
+    }else{
+      this.ldata.uid=localStorage.getItem("user_id");
+   this.ldata.lang='';
+    }
 	
   
 		  this.http.get('http://preferwork.com/apiproject/api/homepageData', this.ldata, headers)
