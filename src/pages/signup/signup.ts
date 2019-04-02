@@ -249,7 +249,6 @@ const alert = this.alertCtrl.create({
 
             // Get user ID and Token
             var fb_id = res.authResponse.userID;
-            var fb_token = res.authResponse.accessToken;
 			this.fbdata.pic="https://graph.facebook.com/" + fb_id + "/picture?type=large";
 
             // Get user infos from the API

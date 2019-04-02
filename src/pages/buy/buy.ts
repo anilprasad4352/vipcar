@@ -6,7 +6,6 @@ import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { ApiProvider } from './../../providers/api/api';
-import { Observable } from 'rxjs/Observable';
 import { HTTP } from '@ionic-native/http';
 /**
  * Generated class for the BuyPage page.
@@ -169,9 +168,9 @@ const alert = this.alertCtrl.create({
 		  
 	  }
 	  if(id == '1'){
-		  for(var i=0;i<this.services.length;i++){
-			  if(this.services[i].id==e){
-				this.buy.price=this.services[i].drop_price;  
+		  for(var j=0;j<this.services.length;j++){
+			  if(this.services[j].id==e){
+				this.buy.price=this.services[j].drop_price;  
 			  }
 		  } 
 	  } 

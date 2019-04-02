@@ -5,7 +5,6 @@ import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { ApiProvider } from './../../providers/api/api';
-import { Observable } from 'rxjs/Observable';
 import { HTTP } from '@ionic-native/http';
 /**
  * Generated class for the ContactPage page.

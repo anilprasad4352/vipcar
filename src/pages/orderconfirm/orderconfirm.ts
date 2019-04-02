@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
-import { HTTP } from '@ionic-native/http';
 import { AlertController } from 'ionic-angular';
 
 /**
@@ -23,11 +22,8 @@ export class OrderconfirmPage {
 	lang:''
 }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,public loadingCtrl: LoadingController,private http: HTTP) {
-	     let headers = {
-            'Content-Type': 'application/json'
-        };
-		
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,public loadingCtrl: LoadingController) {
+	
 		  this.ldata.uid=localStorage.getItem("user_id");
    this.ldata.lang='';
 	

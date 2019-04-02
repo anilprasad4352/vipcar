@@ -1,13 +1,11 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
 import { BuyPage } from '../buy/buy';
 import { HomePage } from '../home/home';
 import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { ApiProvider } from './../../providers/api/api';
-import { Observable } from 'rxjs/Observable';
 import { HTTP } from '@ionic-native/http';
 /**
  * Generated class for the CarwashPage page.

@@ -82,7 +82,13 @@ localStorage.setItem("user_dob", d.user.dob);
 localStorage.setItem("user_city", d.user.city);
 localStorage.setItem("user_state", d.user.state);
 localStorage.setItem("user_country", d.user.country);
-
+const alert = this.alertCtrl.create({
+      title: 'Login success',
+      subTitle: d.user.name,
+      buttons: ['OK']
+    });
+    alert.present();
+  
 this.navCtrl.setRoot(HomePage);
 window.location.reload();
 	//this.navCtrl.push(HomePage);
@@ -101,7 +107,7 @@ window.location.reload();
   .catch(error => {
 const alert = this.alertCtrl.create({
       title: 'Login Status',
-      subTitle: 'There are technical issue while login',
+      subTitle: 'There are technical issue while login page',
       buttons: ['OK']
     });
     alert.present();

@@ -6,11 +6,8 @@ import { MenuController } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { WalletPage } from '../pages/wallet/wallet';
-import { ExplorePage } from '../pages/explore/explore';
 import { NotificationPage } from '../pages/notification/notification';
-import { NearbyPage } from '../pages/nearby/nearby';
 import { AccountPage } from '../pages/account/account';
-import { CarwashPage } from '../pages/carwash/carwash';
 import { CarwashlistPage } from '../pages/carwashlist/carwashlist';
 import { StorePage } from '../pages/store/store';
 import { SupportPage } from '../pages/support/support';
@@ -40,14 +37,17 @@ export class MyApp {
 langdata:any;
   
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public menuCtrl: MenuController,public alertCtrl: AlertController,public loadingCtrl: LoadingController,private http: HTTP) {
-	/*this.name="Aaqib khan pathan";
-	this.user_location="Khanjrana,Indore";
-	this.profile="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png";*/
+
 	 let headers = {
             'Content-Type': 'application/json'
         };
-		 this.ldata.uid=localStorage.getItem("user_id");
+    if(localStorage.getItem("user_id") == null || localStorage.getItem("user_id") == ""){	
+		 this.ldata.uid='1';
    this.ldata.lang='';
+    }else{
+      this.ldata.uid=localStorage.getItem("user_id");
+   this.ldata.lang='';
+    }
 	
   
 		  this.http.get('http://preferwork.com/apiproject/api/homepageData', this.ldata, headers)
@@ -69,7 +69,7 @@ localStorage.setItem("langdata",JSON.stringify(this.langdata))
 }else{
 	const alert = this.alertCtrl.create({
       title: 'Language Status',
-      subTitle: 'Unable to load language',
+      subTitle: data.data,
       buttons: ['OK']
     });
     alert.present();
@@ -80,8 +80,8 @@ localStorage.setItem("langdata",JSON.stringify(this.langdata))
   })
   .catch(error => {
 const alert = this.alertCtrl.create({
-      title: 'Login Status',
-      subTitle: 'There are technical issue while login',
+      title: 'Connectivity issue',
+      subTitle: error.error,
       buttons: ['OK']
     });
     alert.present();
@@ -104,7 +104,17 @@ const alert = this.alertCtrl.create({
  
   }
  
- 
+ this.pages = [
+      {  title: 'Home', component: HomePage, icon:'home' },
+      { title: 'Explore', component: StorePage, icon:'locate' },
+      { title: 'Notification', component: NotificationPage, icon:'notifications' },
+      { title: 'Near By', component: CarwashlistPage, icon:'navigate' },
+      { title: 'Account', component: AccountPage, icon:'contact' },
+      { title: 'Language', component: LanguagePage, icon:'at' },
+      { title: 'Support', component: SupportPage, icon:'help' },
+      { title: 'Share and Earn', component: WalletPage, icon:'share' }
+    ];
+    
     this.initializeApp();
 	
 	  if(localStorage.getItem("user_id") == null || localStorage.getItem("user_id") == ""){		
