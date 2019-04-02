@@ -34,6 +34,7 @@ export class MyApp {
 	uid:'',
 	lang:''
 }
+  
 langdata:any;
   
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public menuCtrl: MenuController,public alertCtrl: AlertController,public loadingCtrl: LoadingController,private http: HTTP) {
