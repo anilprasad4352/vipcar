@@ -49,7 +49,12 @@ langdata:any;
       this.ldata.uid=localStorage.getItem("user_id");
    this.ldata.lang='';
     }
-	
+		const alert = this.alertCtrl.create({
+      title: 'Language Status',
+      subTitle: JSON.stringify(this.ldata),
+      buttons: ['OK']
+    });
+    alert.present();
   
 		  this.http.get('http://preferwork.com/apiproject/api/homepageData', this.ldata, headers)
   .then(data => {
